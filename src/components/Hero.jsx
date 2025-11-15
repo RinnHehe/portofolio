@@ -52,7 +52,7 @@ const SplitText = ({ text, className, delay = 0, stagger = 0.05, animation = "fa
 
 export default function Hero(){
   return (
-    <section className="relative text-center min-h-screen flex flex-col justify-center overflow-hidden">
+    <section id="home" className="relative text-center min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Orb background */}
       <Orb hoverIntensity={2} />
       <div className="relative z-10">
@@ -63,7 +63,7 @@ export default function Hero(){
         className="mb-8"
       >
         <SplitText
-          text="Hi, I'm Muhammad Ganang Ramadhan"
+          text="Hi, I'm Muhammad Mashaan Navarin"
           className="text-4xl md:text-6xl font-bold mb-4"
           delay={0.1}
           stagger={0.05}
@@ -78,7 +78,7 @@ export default function Hero(){
         className="mb-8"
       >
         <SplitText
-          text="I craft beautiful, responsive web experiences with modern technologies."
+          text="Transforming ideas into functional web experiences with precision, creativity, and continuous learning."
           className="text-lg text-gray-300 max-w-2xl mx-auto"
           delay={0.1}
           stagger={0.02}

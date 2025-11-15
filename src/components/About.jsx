@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import ProfileCard from './ProfileCard'
-import profileImage from '../assets/profile5.png'
+import profileImage from '../assets/profile-new.png'
 
 export default function About() {
   return (
@@ -38,14 +38,13 @@ export default function About() {
             >
               <h3 className="text-2xl font-semibold mb-4">My Story</h3>
               <p className="text-gray-300 leading-relaxed">
-                I'm a passionate frontend developer with over 3 years of experience creating 
-                beautiful and functional web applications. I specialize in React, JavaScript, 
-                and modern CSS frameworks, always striving to deliver exceptional user experiences.
+                I'm a web developer with a strong interest in PHP, JavaScript, and modern web frameworks like Laravel, CodeIgniter 4, and React. I enjoy turning ideas into functional systems, working with clean architecture, and building responsive interfaces.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                My journey began with curiosity about how websites work, and it has evolved 
-                into a deep passion for creating digital experiences that make a difference. 
-                I love turning complex problems into simple, beautiful, and intuitive solutions.
+                I started my journey with a curiosity about how applications work behind the scenes, which grew into a passion for web development and cybersecurity. I love solving problems, learning new technologies, and continuously improving my skills.
+              </p>
+              <p className="text-gray-300 leading-relaxed">
+                My focus now is to deepen my backend development expertise and create meaningful projects that deliver real value to users.
               </p>
             </motion.div>
 
@@ -60,11 +59,11 @@ export default function About() {
               <ProfileCard
                 avatarUrl={profileImage}
                 miniAvatarUrl={profileImage}
-                name="Frontend Developer"
-                title="React Developer"
-                handle="muhganangrmdhn"
+                name="Muhammad Mashaan Navarin"
+                title="Web Developer"
+                handle="nvmnyeh"
                 status="Online"
-                contactText="Cookies"
+                contactText="Connect with Me" 
                 showUserInfo={true}
                 enableTilt={true}
                 enableMobileTilt={true}

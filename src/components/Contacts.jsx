@@ -7,15 +7,15 @@ export default function Contacts(){
     {
       icon: FaEnvelope,
       title: 'Email',
-      value: 'rbfamilysmd@gmail.com',
+      value: 'mashaannavarin@gmail.com',
       color: 'text-red-400'
     },
     {
       icon: FaPhone,
       title: 'Phone',
-      value: '+62 882-5809-3431',
+      value: '+62 878-1848-9300',
       color: 'text-green-400',
-      url: 'https://wa.me/6288258093431'
+      url: 'https://wa.me/6287818489300'
     },
     {
       icon: FaMapMarkerAlt,
@@ -30,31 +30,31 @@ export default function Contacts(){
     {
       icon: FaGithub,
       name: 'GitHub',
-      url: 'https://github.com/pawpawly',
+      url: 'https://github.com/RinnHehe',
       color: 'text-gray-400 hover:text-white'
     },
     {
       icon: FaLinkedin,
       name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/muhammad-ganang-ramadhan-563380331/',
+      url: 'https://www.linkedin.com/in/muhammad-mashaan-navarin-5ba879366/',
       color: 'text-gray-400 hover:text-blue-400'
     },
     {
       icon: FaInstagram,
       name: 'Instagram',
-      url: 'https://instagram.com/mhganangrmdhn',
+      url: 'https://instagram.com/nvmnyeh',
       color: 'text-gray-400 hover:text-pink-400'
     },
     {
       icon: FaDiscord,
       name: 'Discord',
-      url: 'https://discord.gg/3TKGWsnK',
+      url: 'https://discord.gg/vxghnMzeRA',
       color: 'text-gray-400 hover:text-indigo-400'
     },
     {
       icon: FaSpotify,
       name: 'Spotify',
-      url: 'https://open.spotify.com/user/sad5docqv5ndf0zd1na0hv5v5?si=itosZJlMQPSeXDDZSeqUaw',
+      url: 'https://open.spotify.com/user/zok069mkireypuhzkk63q4zri?si=edbde3fe54044aa8',
       color: 'text-gray-400 hover:text-green-400'
     }
   ]
