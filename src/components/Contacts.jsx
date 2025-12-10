@@ -8,7 +8,8 @@ export default function Contacts(){
       icon: FaEnvelope,
       title: 'Email',
       value: 'mashaannavarin@gmail.com',
-      color: 'text-red-400'
+      color: 'text-red-400',
+      url: 'https://mail.google.com/mail/?view=cm&fs=1&to=mashaannavarin@gmail.com'
     },
     {
       icon: FaPhone,

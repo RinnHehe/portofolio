@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GooeyNav from './components/GooeyNav';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Particles from './components/Particles';
 
 export default function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuItems = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
@@ -40,6 +41,8 @@ export default function App() {
         section.scrollIntoView({ behavior: 'smooth' });
       }
     }
+    // Close mobile menu after navigation
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -65,7 +68,9 @@ export default function App() {
       
       <div className="relative z-10">
         {/* GooeyNav Header */}
-        <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8 py-4 md:py-6 bg-black/10">
+        <header className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8 py-4 md:py-6 bg-black/10 transition-transform duration-500 ease-out ${
+          mobileMenuOpen ? 'translate-y-0' : 'translate-y-0'
+        }`}>
           <div className="text-white font-semibold text-base md:text-lg">
           </div>
           <div className="flex items-center">

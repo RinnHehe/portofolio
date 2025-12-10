@@ -38,7 +38,7 @@ export default function About() {
             >
               <h3 className="text-2xl font-semibold mb-4">My Story</h3>
               <p className="text-gray-300 leading-relaxed">
-                I'm a web developer with a strong interest in PHP, JavaScript, and modern web frameworks like Laravel, CodeIgniter 4, and React. I enjoy turning ideas into functional systems, working with clean architecture, and building responsive interfaces.
+                I'm a fullstackweb developer with a strong interest in PHP, JavaScript, Typescript and modern web frameworks like Laravel, CodeIgniter 4, and React. I enjoy turning ideas into functional systems, working with clean architecture, and building responsive interfaces.
               </p>
               <p className="text-gray-300 leading-relaxed">
                 I started my journey with a curiosity about how applications work behind the scenes, which grew into a passion for web development and cybersecurity. I love solving problems, learning new technologies, and continuously improving my skills.
@@ -60,7 +60,7 @@ export default function About() {
                 avatarUrl={profileImage}
                 miniAvatarUrl={profileImage}
                 name="Muhammad Mashaan Navarin"
-                title="Web Developer"
+                title=""
                 handle="nvmnyeh"
                 status="Online"
                 contactText="Connect with Me" 

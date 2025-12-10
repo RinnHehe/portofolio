@@ -17,6 +17,7 @@ const GooeyNav = ({
   const textRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(initialActiveIndex);
   const suppressScrollSpyUntil = useRef(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const noise = (n = 1) => n / 2 - Math.random() * n;
   const getXY = (distance, pointIndex, totalPoints) => {
@@ -190,6 +191,11 @@ const GooeyNav = ({
     return () => observer.disconnect();
   }, [items, activeIndex]);
 
+  const handleMobileMenuClick = (index) => {
+    handleClick({ currentTarget: navRef.current?.querySelectorAll('li')[index] }, index);
+    setMobileMenuOpen(false);
+  };
+
   return (
     <>
       {/* This effect is quite difficult to recreate faithfully using Tailwind, so a style tag is a necessary workaround */}
@@ -329,11 +335,117 @@ const GooeyNav = ({
             transition: all 0.3s ease;
             z-index: -1;
           }
+          /* Mobile Menu Styles */
+          .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding-top: 80px;
+            z-index: 40;
+            max-height: 100vh;
+            overflow-y: auto;
+            transform: translateY(-100%);
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          }
+          .mobile-menu.open {
+            transform: translateY(0);
+          }
+          .close-menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            transition: all 0.3s ease;
+          }
+          .close-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: rotate(90deg);
+          }
+          .mobile-menu ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          .mobile-menu li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0;
+            position: relative;
+          }
+          .mobile-menu a {
+            display: block;
+            padding: 16px 20px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+          }
+          .mobile-menu li.active a {
+            background-color: rgba(138, 91, 255, 0.2);
+            color: white;
+          }
+          .mobile-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+          }
+          .burger-icon {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+          }
+          .burger-icon span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: white;
+            border-radius: 1px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          }
+          .burger-icon.open span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+          }
+          .burger-icon.open span:nth-child(2) {
+            opacity: 0;
+          }
+          .burger-icon.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+          }
+          @media (max-width: 768px) {
+            .burger-icon {
+              display: flex;
+            }
+            nav ul {
+              display: none !important;
+            }
+            .effect {
+              display: none !important;
+            }
+          }
         `}
       </style>
       <div className="relative" ref={containerRef}>
+        {/* Desktop Navigation */}
         <nav
-          className="flex relative"
+          className="flex relative hidden md:flex"
           style={{ transform: 'translate3d(0,0,0.01px)' }}>
           <ul
             ref={navRef}
@@ -359,6 +471,49 @@ const GooeyNav = ({
             ))}
           </ul>
         </nav>
+
+        {/* Mobile Burger Icon */}
+        <button
+          className={`burger-icon ${mobileMenuOpen ? 'open' : ''}`}
+          onClick={() => {
+            setMobileMenuOpen(!mobileMenuOpen);
+          }}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* Mobile Menu */}
+        <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+          <button
+            className="close-menu-btn"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
+          <ul>
+            {items.map((item, index) => (
+              <li
+                key={index}
+                className={`${activeIndex === index ? 'active' : ''}`}
+              >
+                <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleMobileMenuClick(index);
+                  }}
+                  href={item.href}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <span className="effect filter" ref={filterRef} />
         <span className="effect text" ref={textRef} />
       </div>
